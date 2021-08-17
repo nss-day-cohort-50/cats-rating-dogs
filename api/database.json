@@ -15,7 +15,7 @@
             "livesRemaining": 7,
             "isCuddly": true,
             "humanTolerated": "Erin"
-        }
+        },
         {
             "id": 3,
             "name": "Milo",
@@ -46,13 +46,13 @@
         {
             "id": 1,
             "name": "Toby",
-            "image": "images/toby.jpeg"
+            "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.23PESYPgH7FMEfAzXvQUlQHaFj%26pid%3DApi&f=1"
 
         },
         {
             "id": 2,
             "name": "Otis",
-            "image": "images/toby.jpeg"
+            "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.m3u0adM726Azub_0UkezawHaHW%26pid%3DApi&f=1"
 
         }
     ]
