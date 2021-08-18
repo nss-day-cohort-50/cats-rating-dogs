@@ -1,8 +1,5 @@
 import { getCats } from "./dataAccess.js"
 
-
-
-
 export const CatSelect = () => {
     const cats = getCats()
 
