@@ -1,12 +1,17 @@
 import { CatsRateDogs } from "./CatsRateDogs.js";
-import { fetchCatReviewers, fetchDogsToBeReviewed } from "./dataAccess.js";
+import { fetchCatReviewers, fetchDogsToBeReviewed, fetchReviews } from "./dataAccess.js";
 
 const mainContainer = document.querySelector("#container")
 
 const renderHTML = () => {
     fetchDogsToBeReviewed()
-    fetchCatReviewers().then(() => {
+    fetchCatReviewers()
+    fetchReviews().then(() => {
         mainContainer.innerHTML = CatsRateDogs()
     })
 }
 renderHTML()
+
+mainContainer.addEventListener("stateChanged", e => {
+    renderHTML()
+})

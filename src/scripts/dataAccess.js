@@ -5,6 +5,7 @@ const applicationState = {
     reviews: [],
     dumbDogs: []
 }
+const mainContainer = document.querySelector("#container")
 
 export const fetchCatReviewers = () => {
     // fetch makes an http request and returns a promise
@@ -32,6 +33,17 @@ export const fetchDogsToBeReviewed = () => {
         )
 }
 
+export const fetchReviews = () => {
+    return fetch(`${baseURL}/reviews?_sort=timestamp&_order=desc`)
+        .then(response => response.json())
+        .then(
+            (reviews) => {
+                // Store the external state in application state
+                applicationState.reviews = reviews
+            }
+        )
+}
+
 export const sendReview = (review) => {
     const fetchOptions = {
         method: "POST",
@@ -44,10 +56,23 @@ export const sendReview = (review) => {
     return fetch(`${baseURL}/reviews`, fetchOptions)
         .then(response => response.json())
         .then(() => {
-                document.dispatchEvent(new CustomEvent("stateChanged"))
+                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         })
+}
+export const deleteReview = (id) => {
+
+    return fetch(`${baseURL}/reviews/${id}`, { method: "DELETE" })
+
+        .then(
+
+            () => {
+                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
 }
 
 export const getCats = () => applicationState.catReviewers.map(cat => ({...cat}))
 
 export const getDumbDogs = () => applicationState.dumbDogs.map(dummy => ({...dummy}))
+
+export const getReviews = () => applicationState.reviews.map(review => ({...review}))
